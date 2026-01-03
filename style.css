@@ -4,6 +4,7 @@
 
 body {
   background-color: #f7f4f4;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
 .container {
@@ -58,13 +59,12 @@ body {
 
 .output {
   color: #f7f4f4;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   font-size: 48px;
   font-weight: 600;
   letter-spacing: -0.015em;
 }
 
-.buttons {
+.keypads-container {
   background-color: #262b34;
   border-radius: 20px 1.2rem;
   height: 330px;
