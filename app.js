@@ -3,7 +3,7 @@ const digits = document.querySelectorAll(".keypad.digits");
 const operators = document.querySelectorAll(".keypad.operator");
 const output = document.querySelector(".output");
 const equalTo = document.querySelector(".equalTo");
-const ac = document.querySelector(".AC");
+const clearButton = document.querySelector(".AC");
 
 function calculator() {
     function add(x, y) {
@@ -33,6 +33,10 @@ function calculator() {
     let firstOperand = null;
     let secondOperand = null;
     let isSecondOperand = false;
+
+    clearButton.addEventListener("click", () => {
+        output.textContent = ""
+    })
 
     digits.forEach((digit) => {
         digit.addEventListener("click", (event) => {
