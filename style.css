@@ -73,7 +73,7 @@ body {
   justify-content: space-evenly;
 }
 
-.ac {
+.keypad {
   height: 50px;
   width: 50px;
   background-color: #1f232b;
@@ -82,20 +82,27 @@ body {
   font-size: 20px;
 }
 
-.ac.brown.division {
+.keypad:hover {
+  cursor: pointer;
+}
+
+.first-row .keypad.division,
+.third-row .keypad.operator {
   font-size: 25px;
-}
-
-.ac.teal {
-  color: #2dd4bf;
-}
-
-.ac.brown {
   color: #f87171;
 }
 
-.ac.white {
-  color: #ffffff;
+.first-row .keypad {
+  color: #2dd4bf;
+}
+
+.keypad.operator,
+.keypad.equalTo {
+  color: #f87171;
+}
+
+.keypad.digits {
+  color: #ffff;
 }
 
 .first-row,
