@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #f7f4f4;
+  background-color: #eadcdc;
   font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
@@ -22,11 +22,15 @@ body {
 }
 
 .light-dark-mode-container {
-  display: flex;
   height: 70px;
   justify-content: center;
   display: flex;
   align-items: last baseline;
+}
+
+.light-dark-mode-container-js {
+  background-color: #ffffff;
+  border: 1px solid #fff;
 }
 
 .light-dark-mode {
@@ -37,11 +41,21 @@ body {
   background-color: #262b34;
 }
 
+.light-dark-mode-js {
+  background-color: #e8e8e8;
+}
+
 .light-mode,
 .dark-mode {
   border: none;
   background-color: #262b34;
   color: #d1caca;
+}
+
+.light-mode-js,
+.dark-mode-js {
+  background-color: #e8e8e8;
+  color: #262b34;
 }
 
 .light-mode:hover,
@@ -64,6 +78,10 @@ body {
   letter-spacing: -0.015em;
 }
 
+.output-js {
+  color: #000000;
+}
+
 .keypads-container {
   background-color: #262b34;
   border-radius: 20px 1.2rem;
@@ -73,6 +91,10 @@ body {
   justify-content: space-evenly;
 }
 
+.keypads-container-js {
+  background-color: #e8e8e8;
+}
+
 .keypad {
   height: 50px;
   width: 50px;
@@ -80,6 +102,14 @@ body {
   border: none;
   border-radius: 0.5rem;
   font-size: 20px;
+}
+
+.keypad-js {
+  background-color: #dcdada;
+}
+
+.digits-js {
+  color: #000000;
 }
 
 .keypad:hover {
@@ -103,6 +133,10 @@ body {
 
 .keypad.digits {
   color: #ffff;
+}
+
+.dot {
+  font-size: 30px;
 }
 
 .first-row,
