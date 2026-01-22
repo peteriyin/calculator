@@ -34,24 +34,36 @@ function calculator() {
     let firstOperand = null;
     let secondOperand = null;
     let isActive = false;
+    let firstOperandOutput = null;
+    let secondOperandOutput = null;
 
     clearButton.addEventListener("click", () => {
-        output.textContent = (newDigit += "e");
     });
 
     digits.forEach((digit) => {
         digit.addEventListener("click", (event) => {
+            firstOperandOutput = Number(event.target.textContent);
+            secondOperandOutput = Number(event.target.textContent);
             if (!isActive) {
-                firstOperand = Number(event.target.textContent);
-                output.append(firstOperand);
+                if (firstOperand == null) {
+                    firstOperand = Number(event.target.textContent);
+                    console.log(`first: ${firstOperand}`);
+                    output.textContent = (firstOperand);
+                }
+                else if (firstOperand != null) {
+                    firstOperand = (firstOperand * 10) + firstOperandOutput
+                    console.log(`firstoperand: ${firstOperandOutput}`);
+
+                    output.textContent = (firstOperand);
+                };
             }
             else if (isActive) {
                 if (secondOperand == null) {
-
                     output.textContent = "";
+                    output.textContent = secondOperand;
                 }
-                secondOperand = Number(event.target.textContent);
-                output.append(secondOperand);
+                secondOperand = (secondOperand * 10) + secondOperandOutput;
+                output.textContent = (secondOperand);
             };
         });
     });
