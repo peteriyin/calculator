@@ -4,6 +4,13 @@ const operators = document.querySelectorAll(".keypad.operator");
 const output = document.querySelector(".output");
 const equalTo = document.querySelector(".equalTo");
 const clearButton = document.querySelector(".AC");
+const lightMode = document.querySelector(".light-mode");
+const darkMode = document.querySelector(".dark-mode");
+const lightDarkmode = document.querySelector(".light-dark-mode");
+const mainBody = document.querySelector(".main-body");
+const keypadsContainer = document.querySelector(".keypads-container");
+const keypads = document.querySelectorAll(".keypad");
+const secondRow = document.querySelector(".second-row");
 
 function calculator() {
     function add(x, y) {
@@ -51,7 +58,7 @@ function calculator() {
                     output.textContent = (firstOperand);
                 }
                 else if (firstOperand != null) {
-                    firstOperand = (firstOperand * 10) + firstOperandOutput
+                    firstOperand = (firstOperand * 10) + firstOperandOutput;
                     console.log(`firstoperand: ${firstOperandOutput}`);
 
                     output.textContent = (firstOperand);
@@ -83,4 +90,43 @@ function calculator() {
         output.textContent = (operation);
     });
 };
+function light_mode() {
+    lightMode.addEventListener("click", () => {
+        mainBody.classList.add("light-dark-mode-container-js");
+        lightDarkmode.classList.add("light-dark-mode-js");
+        lightMode.classList.add("light-mode-js");
+        darkMode.classList.add("dark-mode-js");
+        keypadsContainer.classList.add("keypads-container-js");
+        output.classList.add("output-js");
+
+        keypads.forEach((keypad) => {
+            keypad.classList.add("keypad-js");
+        });
+
+        digits.forEach((digit) => {
+            digit.style.color = "black"
+        });
+    });
+};
+light_mode();
+
+function dark_mode() {
+    darkMode.addEventListener("click", () => {
+        mainBody.classList.remove("light-dark-mode-container-js");
+        lightDarkmode.classList.remove("light-dark-mode-js");
+        lightMode.classList.remove("light-mode-js");
+        darkMode.classList.remove("dark-mode-js");
+        keypadsContainer.classList.remove("keypads-container-js");
+        output.classList.remove("output-js");
+
+        keypads.forEach((keypad) => {
+            keypad.classList.remove("keypad-js");
+        });
+
+        digits.forEach((digit) => {
+            digit.style.color = "white"
+        });
+    })
+};
+dark_mode();
 calculator();

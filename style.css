@@ -4,7 +4,12 @@
 
 body {
   background-color: #eadcdc;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    system-ui,
+    sans-serif;
 }
 
 .container {
@@ -108,10 +113,6 @@ body {
   background-color: #dcdada;
 }
 
-.digits-js {
-  color: #000000;
-}
-
 .keypad:hover {
   cursor: pointer;
 }
@@ -131,7 +132,7 @@ body {
   color: #f87171;
 }
 
-.keypad.digits {
+.digits {
   color: #ffff;
 }
 
