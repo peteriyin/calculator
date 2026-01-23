@@ -11,6 +11,8 @@ const mainBody = document.querySelector(".main-body");
 const keypadsContainer = document.querySelector(".keypads-container");
 const keypads = document.querySelectorAll(".keypad");
 const secondRow = document.querySelector(".second-row");
+const division = document.querySelector(".division");
+const multiplication = document.getElementById("multiplication");
 
 function calculator() {
     function add(x, y) {
@@ -31,9 +33,9 @@ function calculator() {
             return add(operand1, operand2);
         } else if (op == "-") {
             return subtract(operand1, operand2);
-        } else if (op == "/") {
+        } else if (op == division.textContent) {
             return divide(operand1, operand2);
-        } else if (op == "*") {
+        } else if (op == multiplication.textContent) {
             return multiply(operand1, operand2)
         };
     };
@@ -86,7 +88,6 @@ function calculator() {
     equalTo.addEventListener("click", () => {
         const operation = operate(operator, firstOperand, secondOperand);
         console.log(operation);
-
         output.textContent = (operation);
     });
 };
@@ -104,7 +105,7 @@ function light_mode() {
         });
 
         digits.forEach((digit) => {
-            digit.style.color = "black"
+            digit.style.color = "black";
         });
     });
 };
@@ -124,9 +125,9 @@ function dark_mode() {
         });
 
         digits.forEach((digit) => {
-            digit.style.color = "white"
+            digit.style.color = "white";
         });
-    })
+    });
 };
 dark_mode();
 calculator();
