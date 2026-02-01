@@ -45,6 +45,7 @@ function calculator() {
     let isActive = false;
     let firstOperandOutput = null;
     let secondOperandOutput = null;
+    let result = null;
 
     clearButton.addEventListener("click", () => {
     });
@@ -56,39 +57,51 @@ function calculator() {
             if (!isActive) {
                 if (firstOperand == null) {
                     firstOperand = Number(event.target.textContent);
-                    console.log(`first: ${firstOperand}`);
                     output.textContent = (firstOperand);
                 }
                 else if (firstOperand != null) {
                     firstOperand = (firstOperand * 10) + firstOperandOutput;
-                    console.log(`firstoperand: ${firstOperandOutput}`);
-
                     output.textContent = (firstOperand);
                 };
+                console.log(`first: ${firstOperand}`);
+
             }
             else if (isActive) {
                 if (secondOperand == null) {
-                    output.textContent = "";
+                    secondOperand = Number(event.target.textContent)
                     output.textContent = secondOperand;
                 }
-                secondOperand = (secondOperand * 10) + secondOperandOutput;
-                output.textContent = (secondOperand);
+                else if (secondOperand != null) {
+                    secondOperand = (secondOperand * 10) + secondOperandOutput;
+                    output.textContent = (secondOperand);
+                };
+                console.log(`second: ${secondOperand}`);
             };
         });
     });
 
-    operators.forEach((operate) => {
-        operate.addEventListener("click", (event) => {
+
+    operators.forEach((symbol) => {
+        symbol.addEventListener("click", (event) => {
+            if (secondOperand) {
+                result = operate(operator, firstOperand, secondOperand);
+                output.textContent = Number(result.toFixed(5));
+                firstOperand = result;
+                secondOperand = null;
+            };
             isActive = true;
             operator = event.target.textContent;
-            output.textContent = operator;
+            console.log(`operator: ${operator}`);
+            /////
         });
     });
-
+    if (secondOperand != null) {
+        console.log("is true");
+    }
     equalTo.addEventListener("click", () => {
-        const operation = operate(operator, firstOperand, secondOperand);
-        console.log(operation);
-        output.textContent = (operation);
+        result = operate(operator, firstOperand, secondOperand);
+        output.textContent = Number(result.toFixed(5));
+        console.log(`equal to: ${result}`);
     });
 };
 function light_mode() {
