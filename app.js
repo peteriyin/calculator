@@ -92,15 +92,19 @@ function calculator() {
             isActive = true;
             operator = event.target.textContent;
             console.log(`operator: ${operator}`);
-            /////
         });
     });
-    if (secondOperand != null) {
-        console.log("is true");
-    }
+
     equalTo.addEventListener("click", () => {
-        result = operate(operator, firstOperand, secondOperand);
-        output.textContent = Number(result.toFixed(5));
+        try {
+            result = operate(operator, firstOperand, secondOperand);
+            output.textContent = Number(result.toFixed(5));
+            if (!secondOperand) {
+                throw new TypeError("No second operator");
+            }
+        } catch (error) {
+            console.error("Incomplete Expression: No operator");
+        };
         console.log(`equal to: ${result}`);
     });
 };
