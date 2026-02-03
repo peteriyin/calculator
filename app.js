@@ -15,6 +15,46 @@ const division = document.querySelector(".division");
 const multiplication = document.getElementById("multiplication");
 
 function calculator() {
+    function light_mode() {
+        lightMode.addEventListener("click", () => {
+            mainBody.classList.add("light-dark-mode-container-js");
+            lightDarkmode.classList.add("light-dark-mode-js");
+            lightMode.classList.add("light-mode-js");
+            darkMode.classList.add("dark-mode-js");
+            keypadsContainer.classList.add("keypads-container-js");
+            output.classList.add("output-js");
+
+            keypads.forEach((keypad) => {
+                keypad.classList.add("keypad-js");
+            });
+
+            digits.forEach((digit) => {
+                digit.style.color = "black";
+            });
+        });
+    };
+    light_mode();
+
+    function dark_mode() {
+        darkMode.addEventListener("click", () => {
+            mainBody.classList.remove("light-dark-mode-container-js");
+            lightDarkmode.classList.remove("light-dark-mode-js");
+            lightMode.classList.remove("light-mode-js");
+            darkMode.classList.remove("dark-mode-js");
+            keypadsContainer.classList.remove("keypads-container-js");
+            output.classList.remove("output-js");
+
+            keypads.forEach((keypad) => {
+                keypad.classList.remove("keypad-js");
+            });
+
+            digits.forEach((digit) => {
+                digit.style.color = "white";
+            });
+        });
+    };
+    dark_mode();
+
     function add(x, y) {
         return x + y;
     };
@@ -39,6 +79,7 @@ function calculator() {
             return multiply(operand1, operand2)
         };
     };
+
     let operator = null;
     let firstOperand = null;
     let secondOperand = null;
@@ -46,6 +87,20 @@ function calculator() {
     let firstOperandOutput = null;
     let secondOperandOutput = null;
     let result = null;
+
+    function clearMemory() {
+        operator = null;
+        firstOperand = null;
+        secondOperand = null;
+        isActive = false;
+        firstOperandOutput = null;
+        secondOperandOutput = null;
+        result = null;
+        output.textContent = "";
+    };
+    clearButton.addEventListener("click", () => {
+        clearMemory()
+    });
 
     digits.forEach((digit) => {
         digit.addEventListener("click", (event) => {
@@ -77,7 +132,6 @@ function calculator() {
         });
     });
 
-
     operators.forEach((symbol) => {
         symbol.addEventListener("click", (event) => {
             if (secondOperand) {
@@ -85,6 +139,10 @@ function calculator() {
                 output.textContent = Number(result.toFixed(5));
                 firstOperand = result;
                 secondOperand = null;
+            };
+            if (operator == division.textContent && secondOperand == 0) {
+                alert("Don't crash my calculator 🙂");
+                clearMemory();
             };
             isActive = true;
             operator = event.target.textContent;
@@ -102,57 +160,14 @@ function calculator() {
         } catch (error) {
             console.error("Incomplete Expression: No operator");
         };
+        if (operator == division.textContent && secondOperand == 0) {
+            alert("Don't crash my calculator 🙂")
+            clearMemory()
+        }
         console.log(`equal to: ${result}`);
     });
 
-    clearButton.addEventListener("click", () => {
-        operator = null;
-        firstOperand = null;
-        secondOperand = null;
-        isActive = false;
-        firstOperandOutput = null;
-        secondOperandOutput = null;
-        result = null;
-        output.textContent = "";
-    })
+
 };
-function light_mode() {
-    lightMode.addEventListener("click", () => {
-        mainBody.classList.add("light-dark-mode-container-js");
-        lightDarkmode.classList.add("light-dark-mode-js");
-        lightMode.classList.add("light-mode-js");
-        darkMode.classList.add("dark-mode-js");
-        keypadsContainer.classList.add("keypads-container-js");
-        output.classList.add("output-js");
 
-        keypads.forEach((keypad) => {
-            keypad.classList.add("keypad-js");
-        });
-
-        digits.forEach((digit) => {
-            digit.style.color = "black";
-        });
-    });
-};
-light_mode();
-
-function dark_mode() {
-    darkMode.addEventListener("click", () => {
-        mainBody.classList.remove("light-dark-mode-container-js");
-        lightDarkmode.classList.remove("light-dark-mode-js");
-        lightMode.classList.remove("light-mode-js");
-        darkMode.classList.remove("dark-mode-js");
-        keypadsContainer.classList.remove("keypads-container-js");
-        output.classList.remove("output-js");
-
-        keypads.forEach((keypad) => {
-            keypad.classList.remove("keypad-js");
-        });
-
-        digits.forEach((digit) => {
-            digit.style.color = "white";
-        });
-    });
-};
-dark_mode();
 calculator();
