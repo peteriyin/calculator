@@ -3,7 +3,7 @@ const digits = document.querySelectorAll(".keypad.digits");
 const operators = document.querySelectorAll(".keypad.operator");
 const output = document.querySelector(".output");
 const equalTo = document.querySelector(".equalTo");
-const clearButton = document.querySelector(".AC");
+const clearButton = document.querySelector(".CL");
 const lightMode = document.querySelector(".light-mode");
 const darkMode = document.querySelector(".dark-mode");
 const lightDarkmode = document.querySelector(".light-dark-mode");
@@ -46,9 +46,6 @@ function calculator() {
     let firstOperandOutput = null;
     let secondOperandOutput = null;
     let result = null;
-
-    clearButton.addEventListener("click", () => {
-    });
 
     digits.forEach((digit) => {
         digit.addEventListener("click", (event) => {
@@ -107,6 +104,17 @@ function calculator() {
         };
         console.log(`equal to: ${result}`);
     });
+
+    clearButton.addEventListener("click", () => {
+        operator = null;
+        firstOperand = null;
+        secondOperand = null;
+        isActive = false;
+        firstOperandOutput = null;
+        secondOperandOutput = null;
+        result = null;
+        output.textContent = "";
+    })
 };
 function light_mode() {
     lightMode.addEventListener("click", () => {
