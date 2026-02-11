@@ -98,6 +98,16 @@ function calculator() {
         result = null;
         output.textContent = "";
     };
+
+    function clearResult() {
+        operator = null;
+        firstOperand = null;
+        secondOperand = null;
+        isActive = false;
+        firstOperandOutput = null;
+        secondOperandOutput = null;
+        result = null;
+    }
     clearButton.addEventListener("click", () => {
         clearMemory()
     });
@@ -164,6 +174,7 @@ function calculator() {
             alert("Don't crash my calculator 🙂")
             clearMemory()
         }
+        clearResult()
         console.log(`equal to: ${result}`);
     });
 
