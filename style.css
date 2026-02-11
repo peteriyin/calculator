@@ -60,7 +60,7 @@ body {
 .light-mode-js,
 .dark-mode-js {
   background-color: #e8e8e8;
-  color: #262b34;
+  fill: #262b34;
 }
 
 .light-mode:hover,
