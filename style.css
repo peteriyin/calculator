@@ -113,6 +113,12 @@ body {
   background-color: #dcdada;
 }
 
+.keypad.delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .keypad:hover {
   cursor: pointer;
 }
